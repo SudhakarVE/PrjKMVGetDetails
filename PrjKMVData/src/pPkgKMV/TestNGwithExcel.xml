@@ -1,0 +1,10 @@
+<suite name="XMLSuite" thread-count="1">
+<test name="DPwithExcel">
+<classes>
+<parameter name="sFilePath" value="G://Sridhar//TestData.xlsx"></parameter>
+<parameter name="sSheetName" value="Sheet1"></parameter>
+<class name="PkgTestNGDataProvider.ExcelUtils"/>
+<class name="PkgTestNGDataProvider.TestNGwithExcel"/>
+</classes>
+</test>
+</suite>

@@ -1,0 +1,10 @@
+<suite name="XMLSuite" thread-count="1">
+<test name="ParametersAnnotation">
+<parameter name="Uid" value="KMV20697"></parameter>
+<parameter name="Pwd" value="VS635284"></parameter>
+<classes>
+<parameter name="sFilePath" value="G://Sridhar//SridharKMVProfiles.xlsx"></parameter>
+<class name="PkgTestNGDataProvider.ExcelDataProvider"/>
+</classes>
+</test>
+</suite>
