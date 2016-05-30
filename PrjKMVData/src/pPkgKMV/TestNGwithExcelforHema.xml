@@ -1,0 +1,11 @@
+<suite name="XMLSuite" thread-count="1">
+
+<test name="DPwithExcel">
+<classes>
+<parameter name="sFilePath" value="G://Hema/HemaKMVProfiles.xlsx"></parameter>
+<parameter name="sSheetName" value="Sheet1"></parameter>
+<class name="pPkgKMV.ExcelUtils"/>
+<class name="pPkgKMV.TestNGwithExcel"/>
+</classes>
+</test>
+</suite>
