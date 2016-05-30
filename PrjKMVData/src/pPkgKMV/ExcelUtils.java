@@ -12,10 +12,10 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class ExcelUtils {
-	private static XSSFWorkbook ExcelWBook;
-	private static XSSFSheet ExcelWSheet;
-	private static XSSFRow ExcelWRow;
-	private static XSSFCell ExcelCell;
+	public static XSSFWorkbook ExcelWBook;
+	public static XSSFSheet ExcelWSheet;
+	public static XSSFRow ExcelWRow;
+	public static XSSFCell ExcelCell;
 	
 	//Open Excel File
 	@Test(priority=0)
@@ -36,16 +36,15 @@ public class ExcelUtils {
 		try{
 			System.out.println("LastRow:"+ExcelWSheet.getLastRowNum());
 			int iRowCount = ExcelWSheet.getLastRowNum();
-			
-			Object[][] ReturnXlData = new Object[iRowCount+1][2];
-			for (int iLoop=0;iLoop<=iRowCount;iLoop++)
+			System.out.println("RowCount is"+ iRowCount);
+			Object[][] ReturnXlData = new Object[iRowCount][2];
+			for (int iLoop=1;iLoop<=iRowCount;iLoop++)
 			{
 				ExcelWRow = ExcelWSheet.getRow(iLoop);
 				int iColCount = ExcelWRow.getLastCellNum();
-				System.out.println("iColCount is"+ iColCount);
 				for (int jLoop=0;jLoop<iColCount;jLoop++){
 				System.out.println("Value is"+ getCellData(iLoop,jLoop));
-				ReturnXlData[iLoop][jLoop]=getCellData(iLoop,jLoop);
+				ReturnXlData[iLoop-1][jLoop]=getCellData(iLoop,jLoop);
 				}
 			}
 			return ReturnXlData;
@@ -102,6 +101,19 @@ public class ExcelUtils {
 			throw (e);
 		}
 	}
+	
+	//Write Cell Value
+	public static void fWriteCellData(int iRowNo,int iColNo,String sActValue) throws Exception{
+		ExcelUtils.ExcelWRow= ExcelWSheet.getRow(iRowNo);
+		ExcelCell = ExcelUtils.ExcelWRow.getCell(iColNo, ExcelUtils.ExcelWRow.RETURN_BLANK_AS_NULL);
+		if(ExcelCell==null){
+			ExcelCell=ExcelUtils.ExcelWRow.createCell(iColNo);
+			ExcelCell.setCellValue(sActValue);
+			}
+			else{
+				ExcelCell.setCellValue(sActValue);
+			}		
+		}
 	}
 	
 

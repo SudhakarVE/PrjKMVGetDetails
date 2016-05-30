@@ -4,7 +4,7 @@
 <parameter name="Pwd" value="VH435363"></parameter>
 <classes>
 <parameter name="sFilePath" value="G://Hema//HemaKMVProfiles.xlsx"></parameter>
-<class name="PkgTestNGDataProvider.ExcelDataProvider"/>
+<class name="pPkgKMV.ExcelDataProvider"/>
 </classes>
 </test>
 </suite>
